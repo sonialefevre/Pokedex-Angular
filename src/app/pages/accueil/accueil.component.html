@@ -1,0 +1,20 @@
+<h3>Bienvenue sur le Pokédex !</h3>
+
+<div class="container d-inline-flex p-2 flex-wrap">
+  <div class="card" style="width: 18rem">
+    <img src="https://tinyurl.com/56hky29a" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <a class="btn btn-primary" routerLink="/pokemon-list"
+        >Tous les pokémons</a
+      >
+    </div>
+  </div>
+  <div *ngFor="let t of types" class="card" style="width: 18rem">
+    <img src="{{ t.image }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <a class="btn btn-primary" routerLink="/pokemon-type/{{ t.name }}">{{
+        t.name
+      }}</a>
+    </div>
+  </div>
+</div>

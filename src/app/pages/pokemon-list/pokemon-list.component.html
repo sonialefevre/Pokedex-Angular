@@ -1,0 +1,22 @@
+<h3>Gotta check'em all</h3>
+<div class="container d-inline-flex p-2 flex-wrap">
+  <div *ngFor="let p of pokemons" class="card" style="width: 18rem">
+    <img src="{{ p.image }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ p.name }}</h5>
+      <p *ngFor="let t of p.apiTypes" class="card-text">
+        {{ t.name }}
+        <span
+          ><a routerLink="/pokemon-type/{{ t.name }}"
+            ><img
+              class="w-25 p-3"
+              src="{{ t.image }}"
+              alt="Type {{ t.name }}" /></a
+        ></span>
+      </p>
+      <a routerLink="/pokemon-detail/{{ p.slug }}" class="btn btn-primary"
+        >Details</a
+      >
+    </div>
+  </div>
+</div>

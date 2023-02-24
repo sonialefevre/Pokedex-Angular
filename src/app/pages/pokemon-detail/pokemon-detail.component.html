@@ -1,0 +1,35 @@
+<div class="container">
+  <h3>{{ pokemon.name }}</h3>
+  <div>
+    <img src="{{ pokemon.image }}" alt="..." />
+    <div>
+      <p *ngFor="let t of pokemon.apiTypes" class="card-text">
+        {{ t.name }}
+        <span
+          ><a routerLink="/pokemon-type/{{ t.name }}"
+            ><img class="w-25 p-3" src="{{ t.image }}" alt="" /></a
+        ></span>
+      </p>
+      <div class="container">
+        <h4>Evolutions</h4>
+        <p *ngFor="let e of pokemon.apiEvolutions">{{ e.name }}</p>
+      </div>
+      <div class="container">
+        <h4>Stats</h4>
+        <div class="container">
+          <p *ngFor="let item of pokemon.stats | keyvalue">
+            {{ item.key }} : {{ item.value }}
+          </p>
+        </div>
+      </div>
+      <div class="container">
+        <h4>Resistance</h4>
+        <div *ngFor="let item of pokemon.apiResistances" class="container">
+          <h6>{{ item.name }}</h6>
+          <p>Damage multiplier : {{ item.damage_multiplier }}</p>
+          <p>Damage relation : {{ item.damage_relation }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
